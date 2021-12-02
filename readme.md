@@ -1,18 +1,23 @@
-- [Preamble](#orga3e5f4c)
-  - [Requirements](#org0d9f716)
-  - [Features <code>[2/4]</code>:](#org907f78a)
-- [Compilation](#orga7b35d4)
+- [Preamble](#orgb6b61f4)
+  - [Requirements](#org267cbc8)
+  - [Features <code>[2/4]</code>:](#org8121fa7)
+- [Compilation](#org3d3d8f7)
+- [Specific channels for comm](#org7df685a)
+  - [System behavior](#orgf8e476c)
+  - [Use cases overview](#org88caacc)
+  - [Sequence diagrams](#orgc3c37cf)
+  - [State machine diagram](#orgeac3491)
 
 
 
-<a id="orga3e5f4c"></a>
+<a id="orgb6b61f4"></a>
 
 # Preamble
 
 This is a small C++ broadcast chat.
 
 
-<a id="org0d9f716"></a>
+<a id="org267cbc8"></a>
 
 ## Requirements
 
@@ -35,7 +40,7 @@ This is a small C++ broadcast chat.
 4.  MAY indicates an option
 
 
-<a id="org907f78a"></a>
+<a id="org8121fa7"></a>
 
 ## Features <code>[2/4]</code>:
 
@@ -45,8 +50,56 @@ This is a small C++ broadcast chat.
 -   [ ] Specific channels for communication with particular clients
 
 
-<a id="orga7b35d4"></a>
+<a id="org3d3d8f7"></a>
 
 # Compilation
 
 To compile run `make`.
+
+
+<a id="org7df685a"></a>
+
+# Specific channels for comm
+
+Create specific channels for communication with particular "clients":
+
+-   System behavior (short text)
+-   System Overview
+-   Sequence diagram
+-   State diagrams
+
+
+<a id="orgf8e476c"></a>
+
+## System behavior
+
+Each client can request the server to create a topic which is available to all clients that subscribe to that topic.
+
+-   If a client subscribe to a topic, it can send/receive messages being published to that topic. Additionally, it gets notified of every update on the topic.
+-   Only the client that creates the topic, can remove it.
+-   The clients that don't want to receive updates on a particular topic must unsubscribe from it.
+
+
+<a id="org88caacc"></a>
+
+## Use cases overview
+
+-   **Create topic**: a client requests the server to create a topic. The server will try to create the topic and will return the topic creation status.
+-   **List topics**: a client request the server to list the available topics to chat. The server returns the available topics or an empty list.
+-   **Subscribe topic**: a client request the server to subscribe to an available topic. The server returns the status.
+-   **Unsubscribe topic**: a client request the server to unsubscribe from a topic that it had previously subscribed to. The server returns the status.
+-   **Remove topic**: only the client that created the topic can request its removal from the server. If the server accepts the request, it removes the topic from the list.
+
+
+<a id="orgc3c37cf"></a>
+
+## Sequence diagrams
+
+**Create topic**
+
+![img](diags/plantuml/seq-diag/output/seq-local-interaction-mode.png)
+
+
+<a id="orgeac3491"></a>
+
+## State machine diagram
