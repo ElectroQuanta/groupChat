@@ -1,23 +1,23 @@
-- [Preamble](#orgb6b61f4)
-  - [Requirements](#org267cbc8)
-  - [Features <code>[2/4]</code>:](#org8121fa7)
-- [Compilation](#org3d3d8f7)
-- [Specific channels for comm](#org7df685a)
-  - [System behavior](#orgf8e476c)
-  - [Use cases overview](#org88caacc)
-  - [Sequence diagrams](#orgc3c37cf)
-  - [State machine diagram](#orgeac3491)
+- [Preamble](#orgbb42a81)
+  - [Requirements](#org31b21c4)
+  - [Features <code>[2/4]</code>:](#orga7611c9)
+- [Compilation](#org1e55cb7)
+- [Specific channels for comm](#org561c071)
+  - [System behavior](#org65f14e5)
+  - [Use cases overview](#org9bb9150)
+  - [Sequence diagrams](#org999f227)
+  - [State machine diagram](#org9604f08)
 
 
 
-<a id="orgb6b61f4"></a>
+<a id="orgbb42a81"></a>
 
 # Preamble
 
 This is a small C++ broadcast chat.
 
 
-<a id="org267cbc8"></a>
+<a id="org31b21c4"></a>
 
 ## Requirements
 
@@ -40,7 +40,7 @@ This is a small C++ broadcast chat.
 4.  MAY indicates an option
 
 
-<a id="org8121fa7"></a>
+<a id="orga7611c9"></a>
 
 ## Features <code>[2/4]</code>:
 
@@ -50,14 +50,14 @@ This is a small C++ broadcast chat.
 -   [ ] Specific channels for communication with particular clients
 
 
-<a id="org3d3d8f7"></a>
+<a id="org1e55cb7"></a>
 
 # Compilation
 
 To compile run `make`.
 
 
-<a id="org7df685a"></a>
+<a id="org561c071"></a>
 
 # Specific channels for comm
 
@@ -69,7 +69,7 @@ Create specific channels for communication with particular "clients":
 -   State diagrams
 
 
-<a id="orgf8e476c"></a>
+<a id="org65f14e5"></a>
 
 ## System behavior
 
@@ -80,7 +80,7 @@ Each client can request the server to create a topic which is available to all c
 -   The clients that don't want to receive updates on a particular topic must unsubscribe from it.
 
 
-<a id="org88caacc"></a>
+<a id="org9bb9150"></a>
 
 ## Use cases overview
 
@@ -91,15 +91,15 @@ Each client can request the server to create a topic which is available to all c
 -   **Remove topic**: only the client that created the topic can request its removal from the server. If the server accepts the request, it removes the topic from the list.
 
 
-<a id="orgc3c37cf"></a>
+<a id="org999f227"></a>
 
 ## Sequence diagrams
 
 **Create topic**
 
-![img](diags/plantuml/seq-diag/output/seq-local-interaction-mode.png)
+![img](sec/diags/plantuml/seq-diag/output/seq-local-interaction-mode.png)
 
 
-<a id="orgeac3491"></a>
+<a id="org9604f08"></a>
 
 ## State machine diagram
